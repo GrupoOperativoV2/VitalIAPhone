@@ -1,5 +1,6 @@
 import {
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -20,172 +21,170 @@ type Props = NativeStackScreenProps<RootStackParamList, "Login">;
 
 const LoginScreen: React.FC<Props> = ({ navigation: { navigate } }) => {
   return (
-    <SafeAreaView>
-      <View
-        style={{
-          padding: Spacing * 2,
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-          }}
-        >
-          <Text
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={{ padding: Spacing * 2 }}>
+          <View
             style={{
-              fontSize: FontSize.xLarge,
-              color: Colors.primary,
-              fontFamily: Font["poppins-bold"],
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: FontSize.xLarge,
+                color: Colors.primary,
+                fontFamily: Font["poppins-bold"],
+                marginVertical: Spacing * 3,
+              }}
+            >
+              Login here
+            </Text>
+            <Text
+              style={{
+                fontFamily: Font["poppins-semiBold"],
+                fontSize: FontSize.large,
+                maxWidth: "60%",
+                textAlign: "center",
+              }}
+            >
+              Welcome back you've been missed!
+            </Text>
+          </View>
+          <View
+            style={{
               marginVertical: Spacing * 3,
             }}
           >
-            Login here
-          </Text>
-          <Text
-            style={{
-              fontFamily: Font["poppins-semiBold"],
-              fontSize: FontSize.large,
-              maxWidth: "60%",
-              textAlign: "center",
-            }}
-          >
-            Welcome back you've been missed!
-          </Text>
-        </View>
-        <View
-          style={{
-            marginVertical: Spacing * 3,
-          }}
-        >
-          <AppTextInput placeholder="Email" />
-          <AppTextInput placeholder="Password" />
-        </View>
+            <AppTextInput placeholder="Email" />
+            <AppTextInput placeholder="Password" />
+          </View>
 
-        <View>
-          <Text
-            style={{
-              fontFamily: Font["poppins-semiBold"],
-              fontSize: FontSize.small,
-              color: Colors.primary,
-              alignSelf: "flex-end",
-            }}
-          >
-            Forgot your password ?
-          </Text>
-        </View>
+          <View>
+            <Text
+              style={{
+                fontFamily: Font["poppins-semiBold"],
+                fontSize: FontSize.small,
+                color: Colors.primary,
+                alignSelf: "flex-end",
+              }}
+            >
+              Forgot your password ?
+            </Text>
+          </View>
 
-        <TouchableOpacity
-          style={{
-            padding: Spacing * 2,
-            backgroundColor: Colors.primary,
-            marginVertical: Spacing * 3,
-            borderRadius: Spacing,
-            shadowColor: Colors.primary,
-            shadowOffset: {
-              width: 0,
-              height: Spacing,
-            },
-            shadowOpacity: 0.3,
-            shadowRadius: Spacing,
-          }}
-        >
-          <Text
+          <TouchableOpacity
             style={{
-              fontFamily: Font["poppins-bold"],
-              color: Colors.onPrimary,
-              textAlign: "center",
-              fontSize: FontSize.large,
+              padding: Spacing * 2,
+              backgroundColor: Colors.primary,
+              marginVertical: Spacing * 3,
+              borderRadius: Spacing,
+              shadowColor: Colors.primary,
+              shadowOffset: {
+                width: 0,
+                height: Spacing,
+              },
+              shadowOpacity: 0.3,
+              shadowRadius: Spacing,
             }}
           >
-            Sign in
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigate("Register")}
-          style={{
-            padding: Spacing,
-          }}
-        >
-          <Text
+            <Text
+              style={{
+                fontFamily: Font["poppins-bold"],
+                color: Colors.onPrimary,
+                textAlign: "center",
+                fontSize: FontSize.large,
+              }}
+            >
+              Sign in
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigate("Register")}
             style={{
-              fontFamily: Font["poppins-semiBold"],
-              color: Colors.text,
-              textAlign: "center",
-              fontSize: FontSize.small,
+              padding: Spacing,
             }}
           >
-            Create new account
-          </Text>
-        </TouchableOpacity>
-
-        <View
-          style={{
-            marginVertical: Spacing * 3,
-          }}
-        >
-          <Text
-            style={{
-              fontFamily: Font["poppins-semiBold"],
-              color: Colors.primary,
-              textAlign: "center",
-              fontSize: FontSize.small,
-            }}
-          >
-            Or continue with
-          </Text>
+            <Text
+              style={{
+                fontFamily: Font["poppins-semiBold"],
+                color: Colors.text,
+                textAlign: "center",
+                fontSize: FontSize.small,
+              }}
+            >
+              Create new account
+            </Text>
+          </TouchableOpacity>
 
           <View
             style={{
-              marginTop: Spacing,
-              flexDirection: "row",
-              justifyContent: "center",
+              marginVertical: Spacing * 3,
             }}
           >
-            <TouchableOpacity
+            <Text
               style={{
-                padding: Spacing,
-                backgroundColor: Colors.gray,
-                borderRadius: Spacing / 2,
-                marginHorizontal: Spacing,
+                fontFamily: Font["poppins-semiBold"],
+                color: Colors.primary,
+                textAlign: "center",
+                fontSize: FontSize.small,
               }}
             >
-              <Ionicons
-                name="logo-google"
-                color={Colors.text}
-                size={Spacing * 2}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
+              Or continue with
+            </Text>
+
+            <View
               style={{
-                padding: Spacing,
-                backgroundColor: Colors.gray,
-                borderRadius: Spacing / 2,
-                marginHorizontal: Spacing,
+                marginTop: Spacing,
+                flexDirection: "row",
+                justifyContent: "center",
               }}
             >
-              <Ionicons
-                name="logo-apple"
-                color={Colors.text}
-                size={Spacing * 2}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                padding: Spacing,
-                backgroundColor: Colors.gray,
-                borderRadius: Spacing / 2,
-                marginHorizontal: Spacing,
-              }}
-            >
-              <Ionicons
-                name="logo-facebook"
-                color={Colors.text}
-                size={Spacing * 2}
-              />
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  padding: Spacing,
+                  backgroundColor: Colors.gray,
+                  borderRadius: Spacing / 2,
+                  marginHorizontal: Spacing,
+                }}
+              >
+                <Ionicons
+                  name="logo-google"
+                  color={Colors.text}
+                  size={Spacing * 2}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  padding: Spacing,
+                  backgroundColor: Colors.gray,
+                  borderRadius: Spacing / 2,
+                  marginHorizontal: Spacing,
+                }}
+              >
+                <Ionicons
+                  name="logo-apple"
+                  color={Colors.text}
+                  size={Spacing * 2}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  padding: Spacing,
+                  backgroundColor: Colors.gray,
+                  borderRadius: Spacing / 2,
+                  marginHorizontal: Spacing,
+                }}
+              >
+                <Ionicons
+                  name="logo-facebook"
+                  color={Colors.text}
+                  size={Spacing * 2}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
